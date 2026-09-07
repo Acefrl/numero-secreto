@@ -2,13 +2,19 @@ function comprar() {
      let tipo = document.getElementById('tipo-ingresso').value;
      let quantidade = parseInt(document.getElementById('qtd').value);
 
-     if(tipo == 'pista') {
+     //1.Adicione uma verificação para garantir que a quantidade inserida pelo usuário seja um número positivo. Se o valor não for válido, exiba uma mensagem de erro adequada.
+    if (isNaN(quantidade) || quantidade <= 0) {
+        alert('Por favor, insira uma quantidade válida.');
+        return;
+    }
+
+    if(tipo == 'pista') {
         comprarPista(quantidade);
-     } else if (tipo == 'superior') {
+    } else if (tipo == 'superior') {
         comprarSuperior(quantidade);
-     } else if (tipo == 'inferior') {
+    } else if (tipo == 'inferior') {
         comprarInferior(quantidade);
-     }
+    }
 }
 
 function comprarPista(quantidade){
